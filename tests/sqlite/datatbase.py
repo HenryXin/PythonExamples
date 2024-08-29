@@ -9,9 +9,7 @@ c = conn.cursor()
 
 # Query the database: AND/OR
 
-#c.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC")
-#c.execute("SELECT rowid, * FROM customers ORDER BY rowid ASC")
-c.execute("SELECT rowid, * FROM customers WHERE first_name LIKE '%a' AND rowid = 3")
+c.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC LIMIT 2")
 
 items = c.fetchall()
 #print(items)
