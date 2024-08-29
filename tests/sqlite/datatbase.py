@@ -7,10 +7,15 @@ conn = sqlite3.connect('customer.db')
 # Create a cursor
 c = conn.cursor()
 
-# Query the database
+# Update Records
 
-#c.execute("SELECT rowid, * FROM customers WHERE last_name = 'Agular'")
-c.execute("SELECT rowid, * FROM customers WHERE last_name LIKE '%r'")
+c.execute("""UPDATE customers SET first_name = 'Dorothy'
+WHERE rowid = 4
+""")
+conn.commit()
+
+c.execute("SELECT rowid, * FROM customers")
+#c.execute("SELECT rowid, * FROM customers WHERE last_name LIKE '%r'")
 #print(c.fetchone())
 #print(c.fetchone()[0])
 #print(c.fetchmany(3))
