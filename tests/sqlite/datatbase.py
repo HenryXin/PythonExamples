@@ -7,20 +7,13 @@ conn = sqlite3.connect('customer.db')
 # Create a cursor
 c = conn.cursor()
 
-customers_list = [('Dorothy', 'Agular', 'DAgular@test.com'),
-             ('Arman', 'Beltran', 'ABeltran@testing.com'),
-             ('Eshal', 'Blaese', 'EBlaese@gmail.com')]
+# Query the database
+c.execute("SELECT * FROM customers")
+#c.fetchone()
+#c.fetchmany(3)
+print(c.fetchall())
 
-# insert records
-c.executemany("INSERT INTO customers VALUES (?,?,?)", customers_list)
-
-# NULL
-# INTEGER
-# REAL
-# TEXT
-# BLOG
-
-print("Insert records")
+print("execute")
 
 # Commit
 conn.commit()
