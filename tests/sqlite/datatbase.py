@@ -7,15 +7,12 @@ conn = sqlite3.connect('customer.db')
 # Create a cursor
 c = conn.cursor()
 
-# insert a record
-#c.execute("""INSERT INTO customers VALUES (
-#'Marwa', 'Fowler', 'MFowler@tests.com'
-#   )
-#""")
+customers_list = [('Dorothy', 'Agular', 'DAgular@test.com'),
+             ('Arman', 'Beltran', 'ABeltran@testing.com'),
+             ('Eshal', 'Blaese', 'EBlaese@gmail.com')]
 
-#c.execute("INSERT INTO customers VALUES ('Alyssia', 'Phelps', 'APhelps@testing.com')")
-
-c.execute("INSERT INTO customers VALUES ('Vanessa', 'Cantu', 'VCantu@hotmail.com')")
+# insert records
+c.executemany("INSERT INTO customers VALUES (?,?,?)", customers_list)
 
 # NULL
 # INTEGER
@@ -23,7 +20,7 @@ c.execute("INSERT INTO customers VALUES ('Vanessa', 'Cantu', 'VCantu@hotmail.com
 # TEXT
 # BLOG
 
-print("Insert one record")
+print("Insert records")
 
 # Commit
 conn.commit()
