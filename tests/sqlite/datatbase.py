@@ -7,11 +7,11 @@ conn = sqlite3.connect('customer.db')
 # Create a cursor
 c = conn.cursor()
 
-# Order by
+# Query the database: AND/OR
 
 #c.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC")
 #c.execute("SELECT rowid, * FROM customers ORDER BY rowid ASC")
-c.execute("SELECT rowid, * FROM customers ORDER BY last_name")
+c.execute("SELECT rowid, * FROM customers WHERE first_name LIKE '%a' AND rowid = 3")
 
 items = c.fetchall()
 #print(items)
