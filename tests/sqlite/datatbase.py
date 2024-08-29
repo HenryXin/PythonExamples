@@ -9,11 +9,20 @@ c = conn.cursor()
 
 # Query the database
 c.execute("SELECT * FROM customers")
-#c.fetchone()
-#c.fetchmany(3)
-print(c.fetchall())
+#print(c.fetchone())
+#print(c.fetchone()[0])
+#print(c.fetchmany(3))
+#print(c.fetchall())
 
-print("execute")
+items = c.fetchall()
+#print(items)
+
+print("NAME\t\t" + "EMAIL")
+print("----------------------------------------")
+for item in items:
+    print(item[0] +"."+ item[1]+"\t|"+item[2])
+
+print("!execute!")
 
 # Commit
 conn.commit()
