@@ -7,10 +7,11 @@ conn = sqlite3.connect('customer.db')
 # Create a cursor
 c = conn.cursor()
 
-# Query the database: AND/OR
+# Drop a table
 
-c.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC LIMIT 2")
-
+c.execute("DROP TABLE customers")
+conn.commit()
+c.execute("SELECT * FROM customers")
 items = c.fetchall()
 #print(items)
 for item in items:
